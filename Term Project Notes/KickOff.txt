@@ -1,1 +1,15 @@
-Inital Notes Folder for GIT
+Week 1 Deliverables
+  Project Scope (Patty)
+  Project Team Composition (Mike)
+  Create Git Repo (Giuseppe)
+	
+- Distribute Initial Report that will be appended with weekly deliverables
+Assigned Roles
+  Project Manager (Patty)
+  Coder (Mike)
+	Requirements (Gabriel)
+  Tester (Guieseppe)
+	  Yigit?
+
+
+	
