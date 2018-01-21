@@ -4,6 +4,7 @@ Week 1 Deliverables
   Create Git Repo (Giuseppe)
   Distribute Initial Report that will be appended with weekly deliverables (Gabriel)
 
+
 Assigned Roles
   Project Manager (Patty)
   Coder (Mike)
