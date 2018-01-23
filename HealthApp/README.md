@@ -21,5 +21,5 @@ Running the Application
 
 Testing the application
 
-    Step 1: once you have started the web server above.  Open your browser and navigate to http://localhost:5000/ This will open the home route and serve you the current state of the home page.
+    Step 1: once you have started the web server above.  Open your browser and navigate to http://localhost:5000/ This will open the main route and serve you the current state of the home page.
 
