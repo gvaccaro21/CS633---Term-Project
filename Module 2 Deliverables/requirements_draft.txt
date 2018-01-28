@@ -1,0 +1,28 @@
+Proposed Requirements
+
+1.	Enter workout schedule by day and muscle group
+2.	Select from list of available exercises
+3.	Combine selected exercises into routines
+4.	Track reps and weight by type of exercise and muscle group
+5.	Track strength sets
+6.	Track cardio sets
+7.	Allow entry of goal in X weeks or Y months
+8.	Track performance against the goal(s)	
+9.	Estimate calories burned
+10.	Link to videos or graphics showing correct form for an exercise
+11.	Interface to fit bit 
+12.	Import from external data source, e.g. Excel, for historical data
+13.	Export data to multiple formats, e.g. Excel, csv, XML
+14.	Select from list of predefined work-out routines
+15.	Select gender
+16.	Enter age
+17.	Entry of body measurements 
+18.	Graphical display of body measurements history
+19.	Graphical display of performance 
+20.	Cardio routine timer, interfaced with music selection
+21.	Food intake diary
+22.	Camera interface
+23.	Interface to food database with calories of common food and portions
+24.	Select strengths and weakness during a workout
+25.	Add notes to a specific workout, e.g. mood, location, training partnera
+
