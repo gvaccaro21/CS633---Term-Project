@@ -6,10 +6,8 @@ from sqlite3 import Error
 import json
 
 def create_connection(db_file):
-    """ create a database connection to the SQLite database
-        specified by the db_file
-    :param db_file: database file
-    :return: Connection object or None
+    """ 
+    Attempts to create a generic database connection
     """
     try:
         conn = sqlite3.connect(db_file)
@@ -18,50 +16,43 @@ def create_connection(db_file):
         print(e_error)
     return None
 
-def select_all_policies(conn):
+def save_my_measurements(conn, values):
     """
-    Query all rows in the tasks table
-    :param conn: the Connection object
-    :return:
+    Saves the passed in measurements for the user to the connected database.
     """
+    sql = '''INSERT INTO measure(MEASURE_ID, USER_ID, MEASURE_BMI, MEASURE_HEIGHT, MEASURE_WEIGHT) VALUES (?,?,?,?,?);'''
     cur = conn.cursor()
-    cur.execute("SELECT * FROM Policy")
+    cur.execute(sql, values)
+    # commit_close(conn)
+    return cur.lastrowid
+
+def show_my_measurements(conn, user):
+    """
+    Queries the database for the measurements for a specified user
+    """
+    sql = '''SELECT * FROM measure WHERE USER_ID = ''' + str(user) + ";"
+    print(sql)
+    cur = conn.cursor()
+    cur.execute(sql)
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    # commit_close(conn)
+    return rows
 
-def create_json(conn):
-    """Return the pathname of the KOS root directory."""
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM Policy")
-    json_string = json.dumps(cur.fetchall())
-    print(json_string)
+def commit_close(conn):
+    """
+    Commits database changes and closes the connection
+    """
+    try:
+        conn.commit()
+        conn.close()
+    except Error as e_error:
+        print(e_error)
+    return None
 
-def select_json(conn, pn):
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM Policy where PolicyNumber='" + pn + "'")
-    PolicyNumber = 1
-    Cycle = 1
-    begindate = 2
-    enddate = 3
-    json_string = json.dumps({"PolicyNumber":PolicyNumber, "Result": \
-    {"Cycle":Cycle, "begin_date":begindate, "end_date":enddate}})	
-    r_var = [dict((cur.description[i][0], value) \
-    for i, value in enumerate(row)) for row in cur.fetchall()]
-    print(json_string)
-
-def main():
-    database = "C:\\sqllite\mydb.db"
- 
-    # create a database connection
-    conn = create_connection(database)
-    policy = "AOS24346281441"
-    with conn:
-        #print("1. Query all Policies")
-        #select_all_policies(conn)
-        print("2. Create JSON")
-        select_json(conn,policy)
-        conn.close
-if __name__ == '__main__':
-    main()
-    
+#Script debug variables
+# myConn = create_connection('test.db')
+# Values = (10,2,3,4,5)
+# myUser = (1)
+# print(save_my_measurements(myConn, Values))
+# print(show_my_measurements(myConn, myUser))
+# commit_close(myConn)
