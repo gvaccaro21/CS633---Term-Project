@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Typify by TEMPLATED</title>
+		<title>Log your Measurments</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../static/assets/css/main.css" />
@@ -22,40 +22,32 @@
 				</ul>
 			</section>
 
+				<!-- Nav -->
+				<nav id="menu">
+					<ul class="links">
+						<li><a href="/">Home</a></li>
+						<li><a href="Login">Login</a></li>
+						<li><a href="elements">Elements</a></li>
+						<li><a href="generic">Generic</a></li>
+					</ul>
+				</nav>
+
 		<!-- One -->
 			<section id="one" class="wrapper special">
-				<div class="inner">
-					<header class="major">
-						<h2>Lorem ipsum feugiat tempus</h2>
-					</header>
-					<div class="features">
-						<div class="feature">
-							<i class="fa fa-diamond"></i>
-							<h3>Etiam consequat</h3>
-							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
-						</div>
-						<div class="feature">
-							<i class="fa fa-copy"></i>
-							<h3>Sed adipiscing</h3>
-							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
-						</div>
-						<div class="feature">
-							<i class="fa fa-paper-plane-o"></i>
-							<h3>Feugiat nullam</h3>
-							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
-						</div>
-						<div class="feature">
-							<i class="fa fa-save"></i>
-							<h3>Amet imperdiet</h3>
-							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
-						</div>
-						<div class="feature">
-							<i class="fa fa-envelope-o"></i>
-							<h3>Tempus lorem</h3>
-							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
-						</div>
-					</div>
-				</div>
+				<section id="main" class="wrapper">
+					<h2>Measurements</h2>
+						<form class="SaveMeasurments">
+							  <div class="container">
+								<label><b>Height (in)</b></label>
+								<input type="text" padding="20" maxlength="2" placeholder="70" name="inputHeight" id="inputHeight" required>
+								<label><b>Weight (lbs)</b></label>
+								<input type="text" width="100" maxlength="3" placeholder="200" name="inputWeight" id="inputWeight" required>
+								<label><b>BMI</b></label>
+								<input type="text" size="20" maxlength="2" placeholder="15" name="inputBMI" id="inputBMI" required>
+								<button type="submit" id="btnSaveMeasurements"class="btn btn-lg btn-primary btn-block" type="button">Save Updates</button>
+							</div>
+						</form>
+				</section>
 			</section>
 
 		<!-- Two -->

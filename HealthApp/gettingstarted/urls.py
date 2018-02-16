@@ -12,6 +12,7 @@ import hello.views
 
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
+    url(r'^measure', hello.views.measure, name='measure'),
     url(r'^db', hello.views.db, name='db'),
     path('admin/', admin.site.urls),
 ]
