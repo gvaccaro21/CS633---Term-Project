@@ -1,4 +1,5 @@
 from django.conf.urls import include, url
+from django.contrib.auth.views import login
 from django.urls import path
 
 from django.contrib import admin
@@ -14,6 +15,8 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^measure', hello.views.measure, name='measure'),
     url(r'^savemeasurements', hello.views.savemeasurements, name='savemeasurements'),
+    url(r'^register', hello.views.register, name='register'),
+    url(r'^login', login, {'template_name': 'login.html'}),
     url(r'^db', hello.views.db, name='db'),
     path('admin/', admin.site.urls),
 ]

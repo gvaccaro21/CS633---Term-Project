@@ -6,52 +6,61 @@
 -->
 <html>
 	<head>
-		<title>Log your Measurments</title>
+		<title>WELCOME</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../static/assets/css/main.css" />
 	</head>
 	<body>
-	{%  block body %}
+
 		<!-- Banner -->
 			<section id="banner">
-				<h2><strong>Typify</strong> is a free responsive site template</h2>
-				<p>Brought to you by Templated</p>
+				<img src="../static/images/fitformelogo.png" alt="" />
+				<h2><strong>FitForMe</strong> is a full service fitness application</h2>
+				<p>Brought to you by GYGPM</p>
 				<ul class="actions">
-					<li><a href="#" class="button special">Get started</a></li>
+					<li><a href="{% url 'measure' %}" class="button special">Log Measurements</a></li>
 				</ul>
 			</section>
 
 		<!-- One -->
 			<section id="one" class="wrapper special">
-				<section id="main" class="wrapper">
-					<h2>Measurements</h2>
-						<form action = "/savemeasurements" method = "post" class="SaveMeasurments"> {% csrf_token %}
-							  <div class="container">
-								<label><b>Height (in)</b></label>
-								<input type="text" padding="20" maxlength="2" placeholder="70" name="inputHeight" id="inputHeight" required>
-								<label><b>Weight (lbs)</b></label>
-								<input type="text" width="100" maxlength="3" placeholder="200" name="inputWeight" id="inputWeight" required>
-								<label><b>BMI</b></label>
-								<input type="text" size="20" maxlength="2" placeholder="15" name="inputBMI" id="inputBMI" required>
-								<button type="submit" id="btnSaveMeasurements"class="btn btn-lg btn-primary btn-block" type="button">Save Updates</button>
-							</div>
-						</form>
-				</section>
+				<div class="inner">
+					<header class="major">
+						<h2>Lorem ipsum feugiat tempus</h2>
+					</header>
+					<div class="features">
+						<div class="feature">
+							<i class="fa fa-diamond"></i>
+							<h3>Etiam consequat</h3>
+							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
+						</div>
+						<div class="feature">
+							<i class="fa fa-copy"></i>
+							<h3>Sed adipiscing</h3>
+							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
+						</div>
+						<div class="feature">
+							<i class="fa fa-paper-plane-o"></i>
+							<h3>Feugiat nullam</h3>
+							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
+						</div>
+						<div class="feature">
+							<i class="fa fa-save"></i>
+							<h3>Amet imperdiet</h3>
+							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
+						</div>
+						<div class="feature">
+							<i class="fa fa-envelope-o"></i>
+							<h3>Tempus lorem</h3>
+							<p>Sed tempus feugiat adipiscing nisl cursus aliquam dolore.</p>
+						</div>
+					</div>
+				</div>
 			</section>
+
 		<!-- Two -->
-		<section id="two" class="wrapper style2 special">
-			<div class="inner narrow">
-				<header>
-					<h2>Get in touch</h2>
-				</header>
-				{% for Measurments in usrmeasurements %}
-					<h1>{{ Measurments.Measurement }}</h1>
-				{% endfor %}
-			</div>
-		</section>
-		<!-- Two -->
-			<section id="three" class="wrapper style2 special">
+			<section id="two" class="wrapper style2 special">
 				<div class="inner narrow">
 					<header>
 						<h2>Get in touch</h2>
@@ -496,5 +505,4 @@ print 'It took ' + i + ' iterations to sort the deck.';
 			<script src="../static/assets/js/main.js"></script>
 
 	</body>
-	{% endblock %}
 </html>

@@ -6,6 +6,6 @@ class Greeting(models.Model):
 
 class Measurements(models.Model):
     M_user = models.CharField(max_length=30)
-    M_BMI = models.IntegerField(max_length=3)
-    M_Height = models.IntegerField(max_length=3)
-    M_Weight = models.IntegerField(max_length=3)
+    M_BMI = models.IntegerField()
+    M_Height = models.IntegerField()
+    M_Weight = models.IntegerField()
