@@ -28,9 +28,11 @@
 			<section id="one" class="wrapper special">
 				<div class="inner">
 					<header class="major">
-							{% for Measurments in usrmeasurements %}
-							<h1>{{ Measurments.M_ }}</h1>
-							{% endfor %}
+						{% for Measurments in usrmeasurements %} 
+							<h1>BMI: {{ Measurments.M_BMI }}</h1>
+							<h1>Height: {{ Measurments.M_Height }}</h1>
+							<h1>Weight: {{ Measurments.M_Weight }}</h1>
+						{% endfor %}
 					</header>
 					<div class="features">
 						<div class="feature">

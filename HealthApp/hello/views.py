@@ -16,6 +16,10 @@ def register(request):
         if form.is_valid():
             form.save()
             return redirect('welcome.html')
+        else:
+            form = UserCreationForm()
+            args = {'form': form}
+            return render(request, 'register.html', args)
     else:
         form = UserCreationForm()
         args = {'form': form}
@@ -23,7 +27,11 @@ def register(request):
 
 def welcome(request):
     # return the Main site page
-    return render(request, 'welcome.html')
+    #usrmeasurements = Measurements.objects.get(user_id=int(request.user.id))
+    usrmeasurements = Measurements.objects.filter(user_id=int(request.user.id)).values()
+    #logger.warning(">>>> INFO:"+str(usrmeasurements.M_BMI))
+    args = {"usrmeasurements": usrmeasurements}
+    return render(request, 'welcome.html', args)
 
 def index(request):
     # return the Main site page
