@@ -45,8 +45,12 @@ def measure(request):
 
 def savemeasurements(request):
     from hello.forms import MeasurementsForm
-    MyMeasurements = Measurements.objects.get(user_id=int(request.user.id))
-    myform = MeasurementsForm(request.POST, instance=MyMeasurements)
+    #logger.warning(">>>> INFO: The current user id is: "+str(request.user.id))
+    if Measurements.objects.filter(user_id=int(request.user.id)).exists():       
+        MyMeasurements = Measurements.objects.get(user_id=int(request.user.id))
+        myform = MeasurementsForm(request.POST, instance=MyMeasurements)
+    else: 
+        myform = MeasurementsForm(request.POST)
     if myform.is_valid():
         # logger.info(">>>> INFO:"+text)         
         MyMeasurements = myform.save(commit=False)
