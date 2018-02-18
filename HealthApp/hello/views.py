@@ -5,6 +5,9 @@ import logging
 
 from .models import Greeting, Measurements
 
+
+logger = logging.getLogger(__name__)
+
 # Create your views here.
 def register(request):
     # return the register page
@@ -18,6 +21,10 @@ def register(request):
         args = {'form': form}
         return render(request, 'register.html', args)
 
+def welcome(request):
+    # return the Main site page
+    return render(request, 'welcome.html')
+
 def index(request):
     # return the Main site page
     return render(request, 'index.html')
@@ -29,14 +36,26 @@ def measure(request):
     return render(request, 'measure.html', args)
 
 def savemeasurements(request):
-    if request.method =="POST":
-        user = ""
-        intBMI = request.POST.get("inputBMI", "")
-        intHeight = request.POST.get("inputHeight", "")
-        intWeight = request.POST.get("inputWeight", "")
-        objMeasurments = Measurements(M_user = user, M_BMI = intBMI, M_Height = intHeight, M_Weight = intWeight)
-        objMeasurments.save()   
-        return redirect("index")
+    from hello.forms import MeasurementsForm
+    MyMeasurements = Measurements.objects.get(user_id=int(request.user.id))
+    myform = MeasurementsForm(request.POST, instance=MyMeasurements)
+    if myform.is_valid():
+        # logger.info(">>>> INFO:"+text)         
+        MyMeasurements = myform.save(commit=False)
+        MyMeasurements.user = request.user
+        MyMeasurements.save()
+    return redirect("welcome")
+    
+    # try: 
+    #     username = request.user.userprofile
+    # except UserProfile.DoesNotExist:
+    #     username = UserProfile(user=request.user)
+    # if request.method =="POST":        
+    #     intBMI = request.POST.get("inputBMI", "")
+    #     intHeight = request.POST.get("inputHeight", "")
+    #     intWeight = request.POST.get("inputWeight", "")
+    #     objMeasurments = Measurements(user = username, M_BMI = intBMI, M_Height = intHeight, M_Weight = intWeight)
+    #     objMeasurments.save()   
 
 def db(request):
 

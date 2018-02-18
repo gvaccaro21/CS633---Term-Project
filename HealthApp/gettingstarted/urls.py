@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^savemeasurements', hello.views.savemeasurements, name='savemeasurements'),
     url(r'^register', hello.views.register, name='register'),
     url(r'^login', login, {'template_name': 'login.html'}),
+    url(r'^welcome', hello.views.welcome, name='welcome'),
     url(r'^db', hello.views.db, name='db'),
     path('admin/', admin.site.urls),
 ]
