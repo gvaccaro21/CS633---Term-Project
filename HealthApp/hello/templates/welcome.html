@@ -6,7 +6,11 @@
 -->
 <html>
 	<head>
-		<title>WELCOME</title>
+		{% if user.is_authenticated %}
+			<title>{{ request.user.username }}'s FitForMe</title>
+		{% else %}
+			<title>Please Login</title>
+		{% endif %}	  
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../static/assets/css/main.css" />
@@ -17,12 +21,22 @@
 		<!-- Banner -->
 			<section id="banner">
 				<img src="../static/images/fitformelogo.png" alt="" />
-				<h2><strong>FitForMe</strong> is a full service fitness application</h2>
-				<p>Brought to you by GYGPM</p>
-				<ul class="actions">
-						<li><a href="{% url 'measure' %}" class="button special">Log Measurements</a></li>
-						<li><a href="/login.html" class="button special">Login</a></li>
-						<li><a href="{% url 'register' %}" class="button special">Register</a></li>
+				{% if user.is_authenticated %}
+					<h2><strong>Hello {{ request.user.username }}!</strong><br>Welcome back!</h2>
+				{% else %}       
+					<h2><strong>Hello, please login to continue!</h2>
+				{% endif %}				
+				<ul class="actions">																			
+						{% if user.is_authenticated %}							
+							<li><a href=# class="button special">My Routines</a></li>							
+							<li><a href=# class="button special">My Nutrition</a></li>							
+							<li><a href=# class="button special">My Schedule</a></li>
+							<li><a href="{% url 'measure' %}" class="button special">Log Measurements</a></li>
+							<li><a href="{% url 'logout' %}" class="button special">Logout</a></li>
+						{% else %}
+							<li><a href="/login.html" class="button special">Login</a></li>
+							<li><a href="{% url 'register' %}" class="button special">Register</a></li>
+						{% endif %}	
 					</ul>
 			</section>
 

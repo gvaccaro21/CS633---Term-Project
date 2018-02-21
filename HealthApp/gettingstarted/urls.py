@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^measure', hello.views.measure, name='measure'),
     url(r'^savemeasurements', hello.views.savemeasurements, name='savemeasurements'),
     url(r'^register', hello.views.register, name='register'),
+    url(r'^logout', hello.views.logout, name='logout'),
     url(r'^login', login, {'template_name': 'login.html'}),
     url(r'^welcome', hello.views.welcome, name='welcome'),
     url(r'^db', hello.views.db, name='db'),

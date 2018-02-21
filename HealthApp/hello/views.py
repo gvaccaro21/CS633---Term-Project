@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout as django_logout
 from django.http import HttpResponse
 import logging
 
@@ -35,6 +36,11 @@ def welcome(request):
 
 def index(request):
     # return the Main site page
+    return render(request, 'index.html')
+
+def logout(request):
+    # Log the user out of the application
+    django_logout(request)
     return render(request, 'index.html')
 
 def measure(request):

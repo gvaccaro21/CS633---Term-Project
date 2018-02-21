@@ -18,8 +18,16 @@
 				<h2><strong>Typify</strong> is a free responsive site template</h2>
 				<p>Brought to you by Templated</p>
 				<ul class="actions">						
-						<li><a href="/login.html" class="button special">Login</a></li>
-						<li><a href="{% url 'register' %}" class="button special">Register</a></li>
+						{% if user.is_authenticated %}
+							<li><a href="{% url 'welcome' %}" class="button special">My Profile</a></li>
+							<li><a href=# class="button special">My Routines</a></li>							
+							<li><a href=# class="button special">My Nutrition</a></li>							
+							<li><a href=# class="button special">My Schedule</a></li>							
+							<li><a href="{% url 'logout' %}" class="button special">Logout</a></li>
+						{% else %}
+							<li><a href="/login.html" class="button special">Login</a></li>
+							<li><a href="{% url 'register' %}" class="button special">Register</a></li>
+						{% endif %}	
 					</ul>
 			</section>
 
