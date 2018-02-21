@@ -30,6 +30,15 @@
 
 		<!-- One -->
 			<section id="one" class="wrapper special">
+				<!-- Display messages !-->
+				{% if messages %}
+				  <ul class="messages">
+				    {% for message in messages %}
+				      <li class="{{ message.tags }}">{{ message }}</li>
+				    {% endfor %}
+				  </ul>
+				{% endif %}
+				<!-- End Display messages !-->
 				<form class="grid-form" method="post" action="#">
 					{% csrf_token %}
 					{{ form.as_table }}
