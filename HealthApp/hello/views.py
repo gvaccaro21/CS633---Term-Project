@@ -5,7 +5,8 @@ from django.http import HttpResponse
 import logging
 
 from .models import Greeting, Measurements
-
+# Import messages
+from django.contrib import messages
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +25,9 @@ def register(request):
     else:
         form = UserCreationForm()
         args = {'form': form}
+        # Return messages
+        messages.warning(request, "User already exists or password doesn't match criteria")
+        
         return render(request, 'register.html', args)
 
 def welcome(request):
